@@ -1,6 +1,6 @@
 const lineWidth = document.getElementById('line-width');
 const color = document.getElementById('color');
-const colorOptions = Array.from(document.getElementsByClassName('color-options'));
+const colorOptions = Array.from(document.getElementsByClassName('color-option'));
 
 const modeBtn = document.getElementById('mode-btn');
 const destoryBtn = document.getElementById('destory-btn');
@@ -61,10 +61,10 @@ function onColorClick(event) {
 function onModeClick(event) {
     if (isFilling) {
         isFilling = false;
-        modeBtn.innerText = "Fill";
+        modeBtn.innerText = "🩸 Fill";
     } else {
         isFilling = true;
-        modeBtn.innerText = "Draw";
+        modeBtn.innerText = "✏️ Draw";
     }
 }
 
@@ -82,7 +82,7 @@ function onDesctoryClick() {
 function onEraserClick() {
     ctx.strokeStyle = "white";
     isFilling =  false;
-    modeBtn.innerText = "Fill";
+    modeBtn.innerText = "🩸 Fill";
 }
 
 function onFileChange(event) {
@@ -104,7 +104,7 @@ function onCanvasDoubleClick(event) {
 
     ctx.save();
     ctx.lineWidth = 1;
-    ctx.font = "68px serif";
+    ctx.font = "68px sans-serif";
     ctx.fillText(text, event.offsetX, event.offsetY);
     ctx.restore();
 }
