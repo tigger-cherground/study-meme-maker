@@ -4,7 +4,8 @@ const colorOptions = Array.from(document.getElementsByClassName('color-options')
 
 const modeBtn = document.getElementById('mode-btn');
 const destoryBtn = document.getElementById('destory-btn');
-const eraseBtn = document.getElementById('eraser-btn');
+const eraserBtn = document.getElementById('eraser-btn');
+const saveBtn = document.getElementById('save');
 
 const fileInput = document.getElementById('file');
 const textInput = document.getElementById('text');
@@ -108,6 +109,14 @@ function onCanvasDoubleClick(event) {
     ctx.restore();
 }
 
+function onSaveClick() {
+    const url = canvas.toDataURL();
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "myDrawing.png";
+    a.click();
+}
+
 canvas.addEventListener("mousemove", onMove);
 canvas.addEventListener("mousedown", startPainting);
 canvas.addEventListener("mouseup", cancelPainting);
@@ -122,6 +131,7 @@ colorOptions.forEach(colorOption => colorOption.addEventListener('click', onColo
 
 modeBtn.addEventListener("click", onModeClick);
 destoryBtn.addEventListener('click', onDesctoryClick);
-eraseBtn.addEventListener('click', onEraserClick);
+eraserBtn.addEventListener('click', onEraserClick);
+saveBtn.addEventListener('click', onSaveClick);
 
 fileInput.addEventListener('change', onFileChange);
